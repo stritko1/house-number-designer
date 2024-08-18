@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+}
+
+.form {
+    margin-bottom: 20px;
+}
+
+.preview {
+    position: relative;
+}
+
+.house-image {
+    width: 100%;
+    height: auto;
+}
+
+.text-preview {
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    color: #000;
+}
