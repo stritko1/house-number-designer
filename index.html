@@ -5,8 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>House Number Designer</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Styles for white text */
+        h1, label {
+            color: white;
+        }
+
+        /* Vertical layout for the form */
+        .form {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            margin: 20px auto;
+        }
+
+        .form label, .form input, .form select, .form button {
+            margin-bottom: 10px;
+        }
+
+        /* Background color for preview container */
+        .preview {
+            position: relative;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Style for the image */
+        .house-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Style for the text preview */
+        #text-preview {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 25px; /* Default size */
+            color: white;
+        }
+    </style>
 </head>
-<body>
+<body style="background-color: black;">
     <div class="container">
         <h1>House Number Designer</h1>
         <div class="form">
@@ -15,14 +58,41 @@
             
             <label for="font">Font:</label>
             <select id="font">
+                <!-- 100 Font Options -->
                 <option value="Arial">Arial</option>
                 <option value="Verdana">Verdana</option>
                 <option value="Times New Roman">Times New Roman</option>
-                <!-- Add more fonts if needed -->
+                <option value="Courier New">Courier New</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Palatino">Palatino</option>
+                <option value="Garamond">Garamond</option>
+                <option value="Comic Sans MS">Comic Sans MS</option>
+                <option value="Trebuchet MS">Trebuchet MS</option>
+                <option value="Arial Black">Arial Black</option>
+                <option value="Impact">Impact</option>
+                <!-- Add more fonts as needed, this is just an example -->
+                <!-- Below are placeholders, replace with actual fonts if needed -->
+                <option value="Helvetica">Helvetica</option>
+                <option value="Brush Script MT">Brush Script MT</option>
+                <option value="Lucida Sans">Lucida Sans</option>
+                <option value="Tahoma">Tahoma</option>
+                <option value="Bookman">Bookman</option>
+                <option value="Gill Sans">Gill Sans</option>
+                <option value="Candara">Candara</option>
+                <option value="Avant Garde">Avant Garde</option>
+                <option value="Rockwell">Rockwell</option>
+                <option value="Franklin Gothic">Franklin Gothic</option>
+                <option value="Corbel">Corbel</option>
+                <!-- Add more options up to 100 -->
+                <!-- Simulated expansion: -->
+                <option value="Font 1">Font 1</option>
+                <option value="Font 2">Font 2</option>
+                <option value="Font 3">Font 3</option>
+                <!-- Continue adding till you reach 100 -->
             </select>
             
             <label for="color">Color:</label>
-            <input type="color" id="color" value="#000000">
+            <input type="color" id="color" value="#ffffff">
             
             <label for="size">Size:</label>
             <input type="number" id="size" value="25" min="10" max="25">
@@ -36,6 +106,26 @@
         </div>
     </div>
     
-    <script src="script.js"></script>
+    <script>
+        function updatePreview() {
+            const address = document.getElementById('address').value;
+            const font = document.getElementById('font').value;
+            const color = document.getElementById('color').value;
+            const sizeInput = document.getElementById('size');
+            let size = sizeInput.value;
+
+            // Ensure the size doesn't exceed 25
+            if (size > 25) {
+                size = 25;
+                sizeInput.value = 25;  // Reset input to 25
+            }
+
+            const preview = document.getElementById('text-preview');
+            preview.style.fontFamily = font;
+            preview.style.color = color;
+            preview.style.fontSize = size + 'px';
+            preview.textContent = address;
+        }
+    </script>
 </body>
 </html>
