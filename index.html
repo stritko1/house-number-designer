@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>House Number Designer</title>
+    <title>IZDELAJ SVOJO HIŠNO ŠTEVILKO</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Styles for white text */
@@ -71,22 +71,39 @@
     <div class="container">
         <h1>House Number Designer</h1>
         <div class="form">
-            <label for="address">Address:</label>
+            <label for="Naslov">Address:</label>
             <input type="text" id="address" placeholder="e.g., Jeze 9">
             
-            <label for="font">Font:</label>
+            <label for="Font">Font:</label>
             <select id="font">
-                <!-- Font Options -->
                 <option value="Arial">Arial</option>
                 <option value="Verdana">Verdana</option>
                 <option value="Times New Roman">Times New Roman</option>
-                <!-- Add more fonts if needed -->
+                <option value="Courier New">Courier New</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Palatino">Palatino</option>
+                <option value="Garamond">Garamond</option>
+                <option value="Comic Sans MS">Comic Sans MS</option>
+                <option value="Trebuchet MS">Trebuchet MS</option>
+                <option value="Arial Black">Arial Black</option>
+                <option value="Impact">Impact</option>
+                <option value="Helvetica">Helvetica</option>
+                <option value="Brush Script MT">Brush Script MT</option>
+                <option value="Lucida Sans">Lucida Sans</option>
+                <option value="Tahoma">Tahoma</option>
+                <option value="Bookman">Bookman</option>
+                <option value="Gill Sans">Gill Sans</option>
+                <option value="Candara">Candara</option>
+                <option value="Avant Garde">Avant Garde</option>
+                <option value="Rockwell">Rockwell</option>
+                <option value="Franklin Gothic">Franklin Gothic</option>
+                <option value="Corbel">Corbel</option>      
             </select>
             
-            <label for="color">Color:</label>
+            <label for="Barva">Color:</label>
             <input type="color" id="color" value="#ffffff">
             
-            <label for="size">Size:</label>
+            <label for="Velikost v cm">Size:</label>
             <input type="number" id="size" value="25" min="10" max="25">
             
             <button onclick="updatePreview()">Update Preview</button>
