@@ -23,19 +23,19 @@
             margin-bottom: 10px;
         }
 
-        /* Button with underline */
-        button {
-            background-color: transparent;
-            color: white;
-            text-decoration: underline;
-            border: none;
-            font-size: 16px;
-            cursor: pointer;
-        }
+       button {
+    background-color: white; /* White background */
+    color: #FD6262; /* Text color */
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline */
+}
 
         button:hover {
-            text-decoration: none;
-        }
+    color: #FD6262; /* Keep text color the same on hover */
+    text-decoration: none; /* Ensure underline is not added on hover */
+}
 
         /* Preview container */
         .preview {
@@ -69,12 +69,12 @@
 </head>
 <body style="background-color: transparent;">
     <div class="container">
-        <h1>House Number Designer</h1>
+        <h1>Oblikovalec hišnih številk</h1>
         <div class="form">
-            <label for="Naslov">Address:</label>
-            <input type="text" id="address" placeholder="e.g., Jeze 9">
+            <label for="Naslov">Naslov:</label>
+            <input type="text" id="address" placeholder="npr., Jeze 9">
             
-            <label for="Font">Font:</label>
+            <label for="Font">Pisava:</label>
             <select id="font">
                 <option value="Arial">Arial</option>
                 <option value="Verdana">Verdana</option>
@@ -100,13 +100,13 @@
                 <option value="Corbel">Corbel</option>      
             </select>
             
-            <label for="Barva">Color:</label>
+            <label for="Barva">Barva:</label>
             <input type="color" id="color" value="#ffffff">
             
-            <label for="Velikost v cm">Size:</label>
+            <label for="Velikost v cm">Velikost:</label>
             <input type="number" id="size" value="25" min="10" max="25">
             
-            <button onclick="updatePreview()">Update Preview</button>
+            <button onclick="updatePreview()">Posodobi predogled</button>
         </div>
         
         <div class="preview">
