@@ -23,12 +23,26 @@
             margin-bottom: 10px;
         }
 
-        /* Background color for preview container */
+        /* Button with underline */
+        button {
+            background-color: transparent;
+            color: white;
+            text-decoration: underline;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            text-decoration: none;
+        }
+
+        /* Preview container */
         .preview {
             position: relative;
             text-align: center;
             margin-top: 20px;
-            background-color: transparent; /* Transparent background */
+            background-color: transparent;
         }
 
         /* Style for the image */
@@ -47,7 +61,9 @@
             transform: translate(-50%, -50%);
             font-size: 25px; /* Default size */
             color: white;
-            background-color: transparent; /* Transparent text background */
+            background-color: transparent;
+            cursor: move;
+            text-decoration: underline; /* Underline text */
         }
     </style>
 </head>
@@ -56,41 +72,15 @@
         <h1>House Number Designer</h1>
         <div class="form">
             <label for="address">Address:</label>
-            <input type="text" id="address" placeholder="e.g., Pece 42">
+            <input type="text" id="address" placeholder="e.g., Jeze 9">
             
             <label for="font">Font:</label>
             <select id="font">
-                <!-- 100 Font Options -->
+                <!-- Font Options -->
                 <option value="Arial">Arial</option>
                 <option value="Verdana">Verdana</option>
                 <option value="Times New Roman">Times New Roman</option>
-                <option value="Courier New">Courier New</option>
-                <option value="Georgia">Georgia</option>
-                <option value="Palatino">Palatino</option>
-                <option value="Garamond">Garamond</option>
-                <option value="Comic Sans MS">Comic Sans MS</option>
-                <option value="Trebuchet MS">Trebuchet MS</option>
-                <option value="Arial Black">Arial Black</option>
-                <option value="Impact">Impact</option>
                 <!-- Add more fonts if needed -->
-                <!-- Below are placeholders, replace with actual fonts if needed -->
-                <option value="Helvetica">Helvetica</option>
-                <option value="Brush Script MT">Brush Script MT</option>
-                <option value="Lucida Sans">Lucida Sans</option>
-                <option value="Tahoma">Tahoma</option>
-                <option value="Bookman">Bookman</option>
-                <option value="Gill Sans">Gill Sans</option>
-                <option value="Candara">Candara</option>
-                <option value="Avant Garde">Avant Garde</option>
-                <option value="Rockwell">Rockwell</option>
-                <option value="Franklin Gothic">Franklin Gothic</option>
-                <option value="Corbel">Corbel</option>
-                <!-- Add more options up to 100 -->
-                <!-- Simulated expansion: -->
-                <option value="Font 1">Font 1</option>
-                <option value="Font 2">Font 2</option>
-                <option value="Font 3">Font 3</option>
-                <!-- Continue adding till you reach 100 -->
             </select>
             
             <label for="color">Color:</label>
@@ -127,7 +117,33 @@
             preview.style.color = color;
             preview.style.fontSize = size + 'px';
             preview.textContent = address;
+            preview.style.textDecoration = 'underline'; // Apply underline to text
         }
+
+        // Make the text draggable
+        const textPreview = document.getElementById('text-preview');
+        let isDragging = false;
+        let offsetX = 0;
+        let offsetY = 0;
+
+        textPreview.addEventListener('mousedown', function(e) {
+            isDragging = true;
+            offsetX = e.clientX - textPreview.offsetLeft;
+            offsetY = e.clientY - textPreview.offsetTop;
+        });
+
+        document.addEventListener('mouseup', function() {
+            isDragging = false;
+        });
+
+        document.addEventListener('mousemove', function(e) {
+            if (isDragging) {
+                const x = e.clientX - offsetX;
+                const y = e.clientY - offsetY;
+                textPreview.style.left = `${x}px`;
+                textPreview.style.top = `${y}px`;
+            }
+        });
     </script>
 </body>
 </html>
